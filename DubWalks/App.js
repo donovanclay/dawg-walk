@@ -22,12 +22,12 @@
 import { useState, useEffect } from 'react';
 import { Text, View, ScrollView, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
-import LoadingPage from '../components/loading/loading';
+import LoadingPage from './components/loading/loading';
 
-import { COLORS, icons, images, SIZES } from '../constants';
-import { ScreenHeaderBtn, Welcome } from '../components';
+import { COLORS, icons, images, SIZES } from './constants'
+import { ScreenHeaderBtn, Welcome } from './components';
 
-const Home = () => {
+const App = () => {
   // for the loading page
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
@@ -146,6 +146,6 @@ const Home = () => {
   return content;
 };
 
-export default Home;
+export default function App();
 
 
