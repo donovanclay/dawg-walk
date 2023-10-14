@@ -40,6 +40,7 @@ const App = () => {
     { id: 3, title: 'Event 3' },
     // Add more events here
   ];
+  
 
   
   // Function to handle automatic scrolling of the ad bar
