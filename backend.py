@@ -1,8 +1,10 @@
 from flask import Flask
 from flask import request
 
-dawg_requests = []
+import DawgWalkRequest
+from DawgWalkRequest import DawgRequest
 
+dawg_requests = set()
 
 app = Flask(__name__)
 
@@ -16,9 +18,16 @@ def add_schedule():
 
 @app.route("/anytime", methods = ['GET', 'POST'])
 def anytime():
-    info = request.form["hello"]
-    print(info)
-    return 8;
+    data = request.get_json()
+    print(data)
+    dawg_request = DawgWalkRequest.DawgRequest(data["name"],
+                                  data["destination"],
+                                  data["meeting_location"],
+                                  None)
+    print(dawg_request.depart_time)
+    dawg_requests.add(dawg_request)
+    print("\nrequest added\n")
+    return "43";
 
   
 if __name__ == '__main__':
