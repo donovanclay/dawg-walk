@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome to My App</Text>
+      <Text style={styles.welcomeText}>DubWalks</Text>
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>Press Me</Text>
       </TouchableOpacity>
