@@ -1,5 +1,7 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import LoadingPage from './components/loading/loading'
 
 const App = () => {
   const handlePress = () => {
