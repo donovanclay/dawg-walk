@@ -1,5 +1,7 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import LoadingPage from './components/loading/loading'
 
 const App = () => {
   const handlePress = () => {
@@ -7,14 +9,26 @@ const App = () => {
     console.log('Button pressed!');
   };
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome to My App</Text>
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
-        <Text style={styles.buttonText}>Press Me</Text>
-      </TouchableOpacity>
-    </View>
-  );
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // milliseconds
+  }, []);
+
+  let content;
+
+  if (isLoading) {
+    content = <LoadingPage />;
+  } else {
+    content = (
+      
+    );
+  }
+
+  // Return the prepared content
+  return content;
 };
 
 const styles = StyleSheet.create({

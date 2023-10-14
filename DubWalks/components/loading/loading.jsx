@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-import logoImage from 'DubWalks/components/loading/DubWalk-Logo.jpg';
+import logoImage from '../loading/DubWalk-Logo.jpg';
 
 const LoadingPage = () => {
   return (
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoadingStyle;
+export default LoadingPage;
 
 
 
