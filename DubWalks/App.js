@@ -1,37 +1,13 @@
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View } from 'react-native';
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
-
-import { useState, useEffect } from 'react';
-import { Text, View, ScrollView, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
-import LoadingPage from './components/loading/loading';
-
-import { COLORS, icons, images, SIZES } from './constants'
-import { ScreenHeaderBtn, Welcome } from './components';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const App = () => {
-  // for the loading page
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
+  const handlePress = () => {
+    // Handle button press action here
+    console.log('Button pressed!');
+  };
 
+<<<<<<< HEAD
   // State variable to keep track of the current event index
   const [currentEventIndex, setCurrentEventIndex] = useState(0);
   const upcomingEvents = [
@@ -145,8 +121,39 @@ const App = () => {
 
   // Return the prepared content
   return content;
+=======
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcomeText}>Welcome to My App</Text>
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <Text style={styles.buttonText}>Press Me</Text>
+      </TouchableOpacity>
+    </View>
+  );
+>>>>>>> 47c7d3d9b1d60f0aaf4013db9209f5045ab5ec98
 };
 
-export default function App();
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  welcomeText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: '#3498db',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+});
 
-
+export default App;
