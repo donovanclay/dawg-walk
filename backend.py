@@ -16,8 +16,10 @@ def add_schedule():
 
 @app.route("/anytime", methods = ['GET', 'POST'])
 def anytime():
-    print("5")
+    info = request.form["hello"]
+    print(info)
+    return 8;
 
   
 if __name__ == '__main__':
-    app.run()
+    app.run(host="localhost")
