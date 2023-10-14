@@ -1,0 +1,22 @@
+{
+  "name": "dawg-walk",
+  "version": "1.0.0",
+  "description": "DubHacks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donovanclay/dawg-walk.git"
+  },
+  "keywords": [
+    "Dawg"
+  ],
+  "bugs": {
+    "url": "https://github.com/donovanclay/dawg-walk/issues"
+  },
+  "homepage": "https://github.com/donovanclay/dawg-walk#readme"
+}
