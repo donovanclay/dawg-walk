@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import LoadingPage from './components/loading/loading'
+import LoginPage from './components/login/LoginPage';
 
 const App = () => {
   const handlePress = () => {
@@ -22,9 +23,7 @@ const App = () => {
   if (isLoading) {
     content = <LoadingPage />;
   } else {
-    content = (
-      
-    );
+    content = <LoginPage />;
   }
 
   // Return the prepared content
