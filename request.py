@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+
+@dataclass(eq=True, frozen=True)
 class Request:
 
     # FIELDS
@@ -6,6 +9,6 @@ class Request:
     # destination:
     # arrival_time:
     # depart_time:
-
-    def __init__(self, name, destination, arrival_time):
-        print("hello")
+    name: str
+    destination: tuple[float, float]
+    depart_time: str
