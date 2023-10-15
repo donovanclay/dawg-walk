@@ -1,47 +1,71 @@
-import { useState}  from 'react'
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  FlatList
-} from 'react-native'
-import { useRouter } from 'expo-router';
+import React from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import MapComponent from '../Map/map';
+import API_KEY from '../../config';
+import MapView from "react-native-maps";
 
-import styles from './home.style'
-import { icons, SIZES } from '../../../constants';
+const HomePage = () => {
+  const handlePress = () => {
+    // Handle button press action here
+    console.log('Button pressed!');
+  };
 
-const home = ( { searchTerm, setSearchTerm, handleClick }) => {
-  const router = useRouter();
-  const [activeJobType, setActiveJobType] = useState('Full-time');
   return (
+    <>
     <View>
-      <View style={styles.container}>
-        <Text style={styles.welcomeMessage}> CIRCLE </Text>
-      </View>
-
-      <View style={styles.searchContainer}>
-        <View style={styles.searchWrapper}>
-          <TouchableOpacity style={styles.searchBtn} onPress={(handleClick) => {}}>
-            <Image
-              source={icons.search}
-              resizeMode='contain'
-              style={styles.searchBtnImage}
+    <MapView
+              provider={API_KEY}
+              style={{flex:1}}
+              initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
             />
-          </TouchableOpacity>
-            <TextInput
-              style={styles.searchInput}
-              // parse in the value of what you searching for
-              value={searchTerm}
-              onChangeText={(text) => setSearchTerm(text)}
-              maxLength={23}
-              placeholder="Search event"
-            />
-        </View>
-      </View>
     </View>
-  )
-}
+    <View style={styles.container}>
+      <Text style={styles.welcomeText}>Welcome to Our App</Text>
+      <Image
+        source={{ uri: 'https://via.placeholder.com/150' }}
+        style={styles.image}
+      />
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <Text style={styles.buttonText}>Click Me</Text>
+      </TouchableOpacity>
+    </View>
+    </>
+  );
+};
 
-export default Welcome;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f9f9f9',
+  },
+  welcomeText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: '#007BFF',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 6,
+  },
+  buttonText: {
+    color: '#ffffff',
+    fontSize: 16,
+  },
+});
+
+export default HomePage;
