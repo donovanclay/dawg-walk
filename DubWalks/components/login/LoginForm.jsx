@@ -6,7 +6,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Define your styles here
+
   };
 
   return (
@@ -21,6 +21,7 @@ const LoginForm = () => {
       <TextInput
         placeholder="Password"
         value={password}
+        secureTextEntry={true}
         onChangeText={(text) => setPassword(text)}
         style={styles.input}
       />

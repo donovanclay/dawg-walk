@@ -11,14 +11,13 @@ const HomePage = () => {
   };
 
   return (
-    <>
-    <View style={styles.container}>
-      <View style={styles.mapContainer}>
+    
+  <View style={styles.background}>
+      {/* <View style={styles.mapContainer}>
         <MapComponent />
-      </View>
-    </View>
+      </View> */}
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome to Our App</Text>
+      <Text style={styles.welcomeText}>DubWalks</Text>
       <Image
         source={{ uri: 'https://via.placeholder.com/150' }}
         style={styles.image}
@@ -27,43 +26,24 @@ const HomePage = () => {
         <Text style={styles.buttonText}>Click Me</Text>
       </TouchableOpacity>
     </View>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f9f9f9',
-  },
-  mapContainer: {
-    flex: 1,
+  background: {
+    borderRadius: 50,
+    backgroundColor: '#FCF6BC',
   },
   contentContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   welcomeText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
   },
   image: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-    marginBottom: 20,
   },
   button: {
-    backgroundColor: '#007BFF',
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 6,
   },
   buttonText: {
-    color: '#ffffff',
-    fontSize: 16,
   },
 });
 
