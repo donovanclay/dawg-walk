@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-<<<<<<< HEAD
-import LoadingPage from './components/loading/loading'
-import LoginPage from './components/login/LoginPage';
-=======
 import LoadingPage from './components/loading/loading';
 import HomePage from './components/home/home';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
->>>>>>> origin/main
 
 const App = () => {
+  const handlePress = () => {
+    // Handle button press action here
+    console.log('Button pressed!');
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcomeText}>DubWalks</Text>
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <Text style={styles.buttonText}>Press Me</Text>
+      </TouchableOpacity>
+    </View>
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -24,11 +32,7 @@ const App = () => {
   if (isLoading) {
     content = <LoadingPage />;
   } else {
-<<<<<<< HEAD
     content = <LoginPage />;
-=======
-    content = <HomePage />;
->>>>>>> origin/main
   }
 
   // Return the prepared content
