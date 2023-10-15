@@ -28,14 +28,14 @@ const MapComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+    borderRadius: 27,
+    boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+    width: 350,
+    height: 403,
+    flexShrink: 0,
   },
 });
 
