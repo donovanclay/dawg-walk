@@ -4,6 +4,8 @@ from request import Request
 requests = set({})
 
 
+dawg_requests = set()
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -48,5 +50,19 @@ def find_matches(user, destination):
         result.append(request)
     return result
 
+@app.route("/anytime", methods = ['GET', 'POST'])
+def anytime():
+    data = request.get_json()
+    print(data)
+    dawg_request = DawgWalkRequest.DawgRequest(data["name"],
+                                  data["destination"],
+                                  data["meeting_location"],
+                                  None)
+    print(dawg_request.depart_time)
+    dawg_requests.add(dawg_request)
+    print("\nrequest added\n")
+    return "43";
+
+  
 if __name__ == '__main__':
-    app.run()
+    app.run(host="localhost")
