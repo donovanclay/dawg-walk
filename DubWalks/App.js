@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import LoadingPage from './components/loading/loading'
+import LoadingPage from './components/loading/loading';
+import HomePage from './components/home/home';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 const App = () => {
   const handlePress = () => {
@@ -17,6 +19,24 @@ const App = () => {
       </TouchableOpacity>
     </View>
   );
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // milliseconds
+  }, []);
+
+  let content;
+
+  if (isLoading) {
+    content = <LoadingPage />;
+  } else {
+    content = <LoginPage />;
+  }
+
+  // Return the prepared content
+  return content;
 };
 
 const styles = StyleSheet.create({
