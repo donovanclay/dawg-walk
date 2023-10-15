@@ -12,17 +12,10 @@ const HomePage = () => {
 
   return (
     <>
-    <View>
-    <MapView
-              provider={API_KEY}
-              style={{flex:1}}
-              initialRegion={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-            />
+    <View style={styles.container}>
+      <View style={styles.mapContainer}>
+        <MapComponent />
+      </View>
     </View>
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome to Our App</Text>
@@ -41,9 +34,15 @@ const HomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f9f9f9',
+  },
+  mapContainer: {
+    flex: 1,
+  },
+  contentContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f9f9f9',
   },
   welcomeText: {
     fontSize: 24,
