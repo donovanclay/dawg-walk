@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
 from geopy import distance
 from request import Request
-requests = set({})
 
+dawg_requests = set()
 
 app = Flask(__name__)
 
@@ -23,7 +23,7 @@ def make_request():
   latitude = float(request.args.get("lat"))
   destination = (latitude, longitude)
   matches = find_matches(user, destination)
-  print(requests)
+  print(dawg_requests)
   return jsonify(matches)
 
 @app.route("/add_to_waitlist", )
@@ -31,15 +31,23 @@ def add_to_waitlist():
   user = request.args.get("user")
   longitude = float(request.args.get("long"))
   latitude = float(request.args.get("lat"))
-  requests.add(Request(user, (latitude, longitude)))
   remove_old_requests(user)
+  dawg_requests.add(Request(user, (latitude, longitude), 0))
+  return jsonify(list(dawg_requests))
+
+@app.route("/remove_from_waitlist", )
+def remove_from_waitlist():
+  user = request.args.get("user")
+  remove_old_requests(user)
+  return ""
 
 def remove_old_requests(user):
-  requests = set(filter(lambda x : x.name != user, requests))
+  global dawg_requests
+  dawg_requests = {request for request in dawg_requests if request.name != user}
 
 def find_matches(user, destination):
     result = []
-    for request in sorted(requests, key=lambda x: distance.distance(x.destination, destination).miles):
+    for request in sorted(dawg_requests, key=lambda x: distance.distance(x.destination, destination).miles):
         if user == request.name:
             continue
 
