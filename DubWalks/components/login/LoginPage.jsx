@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LoginForm from './LoginForm';
-import { TextInput, View, ImageBackground, StyleSheet } from 'react-native';
+import { Text, TextInput, View, ImageBackground, StyleSheet, Button } from 'react-native';
 import backgroundImage from './uw.jpeg';
 
-const LoginPage = () => {
+const LoginPage = ( {navigation} ) => {
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
   return (
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
       <View style={styles.container}>
         <TextInput style={styles.title}>DUBWALK</TextInput>
-        <LoginForm />
+        <View style = {{
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 5,
+    width: 300,
+    alignItems: 'center',}}>
+      <Text>Login</Text>
+        <TextInput style 
+        placeholder="Username"
+        value={username}
+        onChangeText={(text) => setUsername(text)}
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="Password"
+        value={password}
+        secureTextEntry={true}
+        onChangeText={(text) => setPassword(text)}
+        style={styles.input}
+      />
+      <Button title="Login" onPress={ ()=> navigation.navigate('Home Page')} color="#007bff" />
+        </View>
       </View>
     </ImageBackground>
   );
@@ -32,6 +55,11 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
+  },
+  input: {
+    width: '100%',
+    margin: 10,
+    padding: 10,
   },
 });
 

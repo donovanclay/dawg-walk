@@ -4,8 +4,13 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import LoadingPage from './components/loading/loading';
 import LoginPage from './components/login/LoginPage';
+import LoginForm from './components/login/LoginForm';
 import HomePage from './components/home/test';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 
 const App = () => {
@@ -19,7 +24,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000); // milliseconds
+    }, 3000); // milliseconds
   }, []);
 
   let content;
@@ -27,11 +32,22 @@ const App = () => {
   if (isLoading) {
     content = <LoadingPage />;
   } else {
-    content = <HomePage/>;
+    if (isLoading) {
+      content = <LoadingPage />;
+    }
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name = "Login"
+            component={LoginPage}
+          />
+        <Stack.Screen name = "Home Page" component={HomePage} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    )
   }
-
   // Return the prepared content
-  return content;
 };
 
 const styles = StyleSheet.create({
