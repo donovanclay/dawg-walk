@@ -41,9 +41,6 @@ const HomePage = () => {
               <Text style={styles.textWrapper5}>Destination</Text>
             </View>
           </View>
-          <View style={styles.group2}>
-            <Text style={styles.textWrapper6}>Dub Walk</Text>
-          </View>
         </View>
       </View>
     </View>
@@ -75,6 +72,7 @@ const styles = StyleSheet.create({
     height: 109,
     position: 'relative',
     width: 363,
+    top: -75,
   },
   rectangle: {
     backgroundColor: '#bc57ec',
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
     shadowColor: '#00000040',
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 4,
-    height: 109,
+    height: 70,
     left: 6,
     position: 'absolute',
     top: 0,
@@ -90,7 +88,6 @@ const styles = StyleSheet.create({
   },
   textWrapper: {
     color: '#242121',
-    fontFamily: 'default',
     fontSize: 30,
     fontWeight: '900',
     height: 81,
@@ -107,7 +104,7 @@ const styles = StyleSheet.create({
     height: 74,
     left: 21,
     position: 'absolute',
-    top: 643,
+    top: 572,
     width: 352,
     backgroundColor: '#e9c2fb',
     borderRadius: 27,
@@ -128,7 +125,6 @@ const styles = StyleSheet.create({
   textWrapper2: {
     flex: 1,
     color: '#242222',
-    fontFamily: 'default',
     fontSize: 25,
     fontWeight: '900',
     height: 74,
@@ -144,7 +140,7 @@ const styles = StyleSheet.create({
     height: 46,
     left: 272,
     position: 'absolute',
-    top: 516,
+    top: 425,
     width: 101,
   },
   overlap2: {
@@ -163,7 +159,6 @@ const styles = StyleSheet.create({
   },
   textWrapper3: {
     color: '#000000',
-    fontFamily: 'default',
     fontSize: 30,
     fontWeight: '900',
     height: 46,
@@ -182,7 +177,7 @@ const styles = StyleSheet.create({
     height: 56,
     left: 15,
     position: 'absolute',
-    top: 576,
+    top: 500,
     width: 356,
   },
   rectangle2: {
@@ -194,20 +189,23 @@ const styles = StyleSheet.create({
     height: 55,
     left: 6,
     position: 'absolute',
+    alignContent: 'center',
     top: 1,
     width: 350,
   },
   enterLocation: {
     color: '#999999',
-    fontFamily: 'default',
     fontSize: 30,
     fontWeight: '400',
     height: 55,
-    left: 0,
+    left: 20,
+    right: 30,
     letterSpacing: 0,
     // lineHeight: 'normal',
     position: 'absolute',
-    top: 0,
+    alignContent: 'center',
+    top: 10,
+    bottom: -20,
     width: 350,
   },
   overlap4: {
@@ -241,7 +239,6 @@ const styles = StyleSheet.create({
   },
   textWrapper4: {
     color: '#000000',
-    fontFamily: 'default',
     fontSize: 10,
     fontWeight: '900',
     height: 17,
@@ -263,7 +260,6 @@ const styles = StyleSheet.create({
   },
   textWrapper5: {
     color: '#000000',
-    fontFamily: 'default',
     fontSize: 10,
     fontWeight: '900',
     height: 16,
@@ -284,7 +280,6 @@ const styles = StyleSheet.create({
   },
   textWrapper6: {
     color: '#000000',
-    fontFamily: 'default',
     fontSize: 30,
     fontWeight: '900',
     height: 74,
@@ -295,6 +290,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     top: 0,
     width: 350,
+  },
+  mapContainer: {
+    flex: 1,
+    right: -20,
+    bottom: -10,
   },
 });
 

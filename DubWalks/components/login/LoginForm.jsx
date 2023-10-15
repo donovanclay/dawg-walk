@@ -5,10 +5,6 @@ const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-
-  };
-
   return (
     <View style={styles.loginForm}>
       <Text>Login</Text>
@@ -25,7 +21,7 @@ const LoginForm = () => {
         onChangeText={(text) => setPassword(text)}
         style={styles.input}
       />
-      <Button title="Login" onPress={handleLogin} color="#007bff" />
+      <Button title="Login" onPress={ ()=> navigation.navigate('HomePage')} color="#007bff" />
     </View>
   );
 };
